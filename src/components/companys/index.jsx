@@ -2,6 +2,16 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NavigationHome from "../navigation/Home";
 import NavigationCompany from "../navigation/Company";
+import Widget from "../widgets/widgets";
+
+const Widgets = () => {
+
+  return (<div className="widgets-container">
+    <Widget name="Unternehmen" />
+    <Widget />
+    <Widget name="Personen" />
+  </div>)
+}
 
 
 const Companys = (props) => {
@@ -22,7 +32,7 @@ const Companys = (props) => {
   const _CompanyTasks = <CompanyTags companyData={filterdData} tags={companyTags("industry")} />
 
 
-  const HomePage = (<><NavigationHome /></>)
+  const HomePage = (<><NavigationHome /><Widgets /></>)
 
   const CompanyPage = (<>
     <NavigationCompany />

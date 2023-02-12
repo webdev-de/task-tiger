@@ -5,7 +5,7 @@ import INFO from "../../helper/settings";
 const linklist = [
     {
         path: "/",
-        lable: "Home"
+        lable: "Dashboard"
     },
     {
         path: "/companys",
