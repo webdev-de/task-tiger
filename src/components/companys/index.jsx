@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavigationHome from "../navigation/Home";
 import NavigationCompany from "../navigation/Company";
 import Widget from "../widgets/widgets";
 
 const Widgets = () => {
-
   return (<div className="widgets-container">
     <Widget name="Unternehmen" />
     <Widget />
@@ -48,9 +47,6 @@ const Companys = (props) => {
 
   const NotFound = (<>
     <NavigationHome />
-    <main>
-      Nichts gefunden
-    </main>
   </>);
 
   return (
@@ -120,9 +116,9 @@ const CompanyEntry = ({ company, deleteBTN }) => {
 const CompanyTags = ({ tags, companyData }) => {
   return (
     <div className="container-main">
-      <div className="company-tag">{tags.map(tag => {
+      <div className="company-tag">{tags.map((tag, index) => {
         const quanty = companyData.reduce((count, company) => count + (company['industry'].toLowerCase() === tag.toLowerCase()), 0);
-        return quanty > 0 && <CompanyTag tag={tag} quanty={quanty} />
+        return quanty > 0 && <CompanyTag key={index} tag={tag} quanty={quanty} />
       })}</div>
     </div>
   )
