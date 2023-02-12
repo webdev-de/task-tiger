@@ -1,11 +1,8 @@
 import { useState } from "react";
 import Companys from "./components/companys";
-import generateUniqueId from "./helper/uniqeID";
-
 
 const App = () => {
-
-
+  // States
   const [company, setCompany] = useState([
     {
       companyID: "K8FJ7T6M",
@@ -71,7 +68,7 @@ const App = () => {
       companyID: "P5L2J3D1",
       name: "Golf Corp.",
       adressInfo: "404 Main St.",
-      industry: "Finance",
+      industry: "Tech",
       contactPerson: "William Thompson",
       phone: "555-555-5561",
       email: "william.thompson@golfcorp.com",
@@ -112,18 +109,17 @@ const App = () => {
   // Handels
   const addCompany = () => { }
   const editCompany = () => { }
-  const deleteCompany = (companyID) => { console.log("deleteCompany wurde aufgerufen",companyID);
-  // Es werden alle daten zurück gegeben die Ungleich der gewählten company ID sind
-  const filterdCompanys = company.filter(c=>c.companyID !== companyID);
-  // Es wird der gefilterte Array als neuer State gesetzt
-  setCompany(filterdCompanys);
-}
+  const deleteCompany = (companyID) => {
+    console.log("deleteCompany wurde aufgerufen", companyID);
+    // Es werden alle daten zurück gegeben die Ungleich der gewählten company ID sind
+    const filterdCompanys = company.filter(c => c.companyID !== companyID);
+    // Es wird der gefilterte Array als neuer State gesetzt
+    setCompany(filterdCompanys);
+  }
 
   return (
     <div>
-      <h1>Task Tiger</h1>
       <Companys companyList={company} deleteCompany={deleteCompany} />
-
     </div>
   );
 };
