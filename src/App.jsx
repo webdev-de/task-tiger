@@ -1,5 +1,8 @@
 import { useState } from "react";
-import Companys from "./components/companys";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CompanyView from "./views/CompanyView";
+
+import HomeView from "./views/HomeView";
 
 const App = () => {
   // States
@@ -117,11 +120,24 @@ const App = () => {
     setCompany(filterdCompanys);
   }
 
+
   return (
-    <div>
-      <Companys companyList={company} deleteCompany={deleteCompany} />
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<HomeView/>} />
+        <Route exact path="/companys" element={<CompanyView/>} />
+        <Route exact path="/company/add"  element={<CompanyView/>} />
+        <Route path='*' element={<HomeView/>} />
+      </Routes>
+    </Router>
+  )
+
+
+  // return (
+  //   <div>
+  //     <Companys companyList={company} deleteCompany={deleteCompany} />
+  //   </div>
+  // );
 };
 
 export default App;
